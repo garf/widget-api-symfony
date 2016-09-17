@@ -61,4 +61,3 @@ in case a new format is added.
     - `domain.dev/widget/{UUID}.json`
     - `domain.dev/widget/{UUID}.html`
     - `domain.dev/widget/{UUID}.png`
-    

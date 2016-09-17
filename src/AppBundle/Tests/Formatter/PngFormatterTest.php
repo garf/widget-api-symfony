@@ -53,10 +53,6 @@ class PngFormatterTest extends KernelTestCase
         $formatter->addParam('foo', 'bar');
         $formatter->addParam('bar', 'baz');
 
-
-        $this->assertEquals(
-            'image/png',
-            $formatter->getResponse()->headers->get('Content-type')
-        );
+        $this->assertEquals('image/png', $formatter->getResponse()->headers->get('Content-type'));
     }
 }
