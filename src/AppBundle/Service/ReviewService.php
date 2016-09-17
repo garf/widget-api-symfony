@@ -51,34 +51,6 @@ class ReviewService
         return $this->countAverage($reviewsList);
     }
 
-    public function seedDatabase()
-    {
-        //This is just to create some records. Not an example of a good code. Just fast solution :)
-        $user = new User();
-        $user->setUsername('Arnold');
-        $this->entityManager->persist($user);
-        $this->entityManager->flush($user);
-
-        $review = new Review();
-        $review->setRating(30);
-        $review->setUser($user);
-        $this->entityManager->persist($review);
-        $this->entityManager->flush($review);
-
-        $review = new Review();
-        $review->setRating(87);
-        $review->setUser($user);
-        $this->entityManager->persist($review);
-        $this->entityManager->flush($review);
-
-        $review = new Review();
-        $review->setRating(12);
-        $review->setUser($user);
-        $this->entityManager->persist($review);
-        $this->entityManager->flush($review);
-
-    }
-
     /**
      * @param array $records
      * @return float
