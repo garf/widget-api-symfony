@@ -38,19 +38,13 @@ class ReviewServiceTest extends \PHPUnit_Framework_TestCase
         $this->instantiateService();
     }
 
-    /**
-     *
-     */
     public function testAverageCount()
     {
-        $rating = $this->reviewService->getUsersAverageRating('1');
+        $rating = $this->reviewService->getUsersAverageRating(1);
 
         $this->assertEquals(40, $rating);
     }
 
-    /**
-     *
-     */
     private function createUserWithReviews()
     {
         $user = new User();
