@@ -40,6 +40,7 @@ class XmlFormatterTest extends KernelTestCase
         $formatter->addParam('bar', 'baz');
 
         $this->assertInstanceOf(Response::class, $formatter->getResponse());
+        $this->assertEquals('text/xml', $formatter->getResponse()->headers->get('Content-type'));
     }
 
     /**
@@ -52,37 +53,9 @@ class XmlFormatterTest extends KernelTestCase
         $formatter->addParam('foo', 'bar');
         $formatter->addParam('bar', 'baz');
 
-        $response = $this->createResponse();
+        $formatterDom = new \SimpleXMLElement($formatter->getResponse()->getContent());
 
-        $this->assertEquals($formatter->getResponse(), $response);
-    }
-
-    /**
-     * @return Response
-     */
-    private function createResponse()
-    {
-        $dto1 = new ParamDTO();
-
-        $dto1->setCaption('foo');
-        $dto1->setValue('bar');
-
-        $dto2 = new ParamDTO();
-
-        $dto2->setCaption('bar');
-        $dto2->setValue('baz');
-
-        $data = [
-            $dto1,
-            $dto2,
-        ];
-
-        $xml = new \SimpleXMLElement('<UserRating/>');
-
-        foreach ($data as $param) {
-            $xml->addChild($param->getCaption(), $param->getValue());
-        }
-
-        return new Response($xml->asXML(), 200, ['Content-Type' => 'text/xml']);
+        $this->assertEquals('bar', $formatterDom->foo);
+        $this->assertEquals('baz', $formatterDom->bar);
     }
 }

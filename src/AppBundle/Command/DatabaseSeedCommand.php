@@ -11,9 +11,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DatabaseSeedCommand extends ContainerAwareCommand
 {
-    /**
-     *
-     */
     protected function configure()
     {
         $this->setName('database:seed')

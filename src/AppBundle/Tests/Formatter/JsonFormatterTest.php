@@ -54,11 +54,11 @@ class JsonFormatterTest extends KernelTestCase
 
         $response = $this->createResponse();
 
-        $this->assertEquals($formatter->getResponse(), $response);
+        $this->assertEquals($formatter->getResponse()->getContent(), $response);
     }
 
     /**
-     * @return JsonResponse
+     * @return string
      */
     private function createResponse()
     {
@@ -67,6 +67,6 @@ class JsonFormatterTest extends KernelTestCase
             'bar' => 'baz',
         ];
 
-        return new JsonResponse($data);
+        return json_encode($data);
     }
 }

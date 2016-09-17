@@ -21,9 +21,6 @@ class OutputFormatterFactoryTest extends KernelTestCase
      */
     private $container;
 
-    /**
-     *
-     */
     public function setUp()
     {
         parent::setUp();
@@ -35,7 +32,7 @@ class OutputFormatterFactoryTest extends KernelTestCase
     /**
      * Tests that factory creates correct instance of formatter
      */
-    public function testFactoryReturnsCorrectFormatterName()
+    public function testFactoryReturnsCorrectFormatterInstance()
     {
         $this->assertInstanceOf(XmlFormatter::class, OutputFormatterFactory::factory($this->container, 'xml'));
         $this->assertInstanceOf(JsonFormatter::class, OutputFormatterFactory::factory($this->container, 'json'));

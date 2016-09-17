@@ -59,7 +59,7 @@ class HtmlFormatterTest extends KernelTestCase
     }
 
     /**
-     * @return JsonResponse
+     * @return Response
      */
     private function createResponse()
     {

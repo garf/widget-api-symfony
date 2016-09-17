@@ -53,45 +53,10 @@ class PngFormatterTest extends KernelTestCase
         $formatter->addParam('foo', 'bar');
         $formatter->addParam('bar', 'baz');
 
-        $response = $this->createResponse();
 
-        $this->assertEquals($formatter->getResponse(), $response);
-    }
-
-    /**
-     * @return JsonResponse
-     */
-    private function createResponse()
-    {
-        $dto1 = new ParamDTO();
-
-        $dto1->setCaption('foo');
-        $dto1->setValue('bar');
-
-        $dto2 = new ParamDTO();
-
-        $dto2->setCaption('bar');
-        $dto2->setValue('baz');
-
-        $data = [
-            $dto1,
-            $dto2,
-        ];
-
-        $image = imagecreate(800, 200);
-        imagecolorallocate($image, 200, 200, 255);
-        $textcolor = imagecolorallocate($image, 0, 0, 255);
-
-
-        foreach ($data as $index => $param) {
-            $string = $param->getCaption().': '.$param->getValue();
-
-            imagestring($image, 5, 50, ($index + 1) * 30, $string, $textcolor);
-        }
-
-        imagepng($image, '/tmp/1.png');
-        imagedestroy($image);
-
-        return new Response(file_get_contents('/tmp/1.png'), 200, ['Content-Type' => 'image/png', '']);
+        $this->assertEquals(
+            'image/png',
+            $formatter->getResponse()->headers->get('Content-type')
+        );
     }
 }

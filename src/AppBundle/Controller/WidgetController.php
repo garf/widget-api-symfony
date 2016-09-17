@@ -29,16 +29,6 @@ class WidgetController
     }
 
     /**
-     * @return Response
-     */
-    public function indexAction()
-    {
-        $this->getReviewService()->seedDatabase();
-
-        return new Response('Database seeded!');
-    }
-
-    /**
      * @param string $uuid
      * @param string $format
      *

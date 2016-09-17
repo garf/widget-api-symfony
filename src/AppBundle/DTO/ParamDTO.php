@@ -27,6 +27,7 @@ class ParamDTO
 
     /**
      * @param string $caption
+     *
      * @return ParamDTO
      */
     public function setCaption($caption)
@@ -46,6 +47,7 @@ class ParamDTO
 
     /**
      * @param float|int|string $value
+     *
      * @return ParamDTO
      */
     public function setValue($value)
@@ -55,6 +57,9 @@ class ParamDTO
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         return get_object_vars($this);

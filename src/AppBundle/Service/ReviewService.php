@@ -53,6 +53,7 @@ class ReviewService
 
     /**
      * @param array $records
+     *
      * @return float
      */
     private function countAverage(array $records)

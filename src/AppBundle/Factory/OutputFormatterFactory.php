@@ -13,6 +13,7 @@ class OutputFormatterFactory
     /**
      * @param ContainerInterface $container
      * @param string             $format
+     *
      * @return FormatterInterface
      */
     public static function factory(ContainerInterface $container, $format)
