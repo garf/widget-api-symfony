@@ -1,0 +1,9 @@
+index:
+    path: /
+    defaults: { _controller: "app.controllers.widget:indexAction"}
+    methods: [GET]
+
+widget:
+    path: /widget/{uuid}.{format}
+    defaults: { _controller: "app.controllers.widget:ratingAction"}
+    methods: [GET]

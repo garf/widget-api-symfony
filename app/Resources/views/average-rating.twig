@@ -1,0 +1,15 @@
+{%  extends 'layour.twig' %}
+
+{% block title %}Average rating{% endblock %}
+
+{% block content %}
+    <h1>Average Rating</h1>
+    <div class="well well-lg">
+        <dl class="dl-horizontal">
+            {% for param in params %}
+                <dt>{{ param.caption }}</dt>
+                <dd><span class="badge">{{ param.value }}</span></dd>
+            {% endfor %}
+        </dl>
+    </div>
+{% endblock %}

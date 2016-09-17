@@ -1,0 +1,13 @@
+services:
+    app.formatter.xml:
+        class: AppBundle\Formatter\XmlFormatter
+
+    app.formatter.json:
+        class: AppBundle\Formatter\JsonFormatter
+
+    app.formatter.html:
+        class: AppBundle\Formatter\HtmlFormatter
+        arguments: ['@templating']
+
+    app.formatter.png:
+        class: AppBundle\Formatter\PngFormatter

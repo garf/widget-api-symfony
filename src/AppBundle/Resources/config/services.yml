@@ -1,0 +1,9 @@
+services:
+    app.validation_exception_listener:
+        class: AppBundle\EventListener\ExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelResponse }
+
+    app.service.review:
+        class: AppBundle\Service\ReviewService
+        arguments: ['@doctrine.orm.default_entity_manager']

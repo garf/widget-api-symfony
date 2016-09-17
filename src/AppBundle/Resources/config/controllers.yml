@@ -1,0 +1,6 @@
+services:
+    app.controllers.widget:
+        class: AppBundle\Controller\WidgetController
+        arguments:
+            - '@service_container'
+            - '@app.service.review'
